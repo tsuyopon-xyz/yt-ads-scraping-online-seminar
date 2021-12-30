@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "create": "ts-node src/create.ts",
+    "read": "ts-node src/read.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "reset": "prisma migrate reset"
   },
