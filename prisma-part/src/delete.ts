@@ -6,31 +6,28 @@ const update = async () => {
   const prisma = new PrismaClient();
   const targetUserId = 1;
 
-  const foundUserBeforeUpdate = await prisma.user.findUnique({
+  const foundUserBeforeDelete = await prisma.user.findUnique({
     where: {
       id: targetUserId,
     },
   });
 
-  const updateResult = await prisma.user.update({
+  const deleteResult = await prisma.user.delete({
     where: {
       id: targetUserId,
     },
-    data: {
-      name: 'Updated Name!!',
-    },
   });
 
-  const foundUserAfterUpdate = await prisma.user.findUnique({
+  const foundUserAfterDelete = await prisma.user.findUnique({
     where: {
       id: targetUserId,
     },
   });
 
   const foundData = {
-    foundUserBeforeUpdate,
-    foundUserAfterUpdate,
-    updateResult,
+    foundUserBeforeDelete,
+    foundUserAfterDelete,
+    deleteResult,
   };
 
   console.log(foundData);
