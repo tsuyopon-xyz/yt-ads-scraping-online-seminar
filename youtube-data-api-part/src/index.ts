@@ -22,5 +22,8 @@ Dotenv.config();
 
   const data = response.data;
 
+  // console.log(data);
+
+  // dataの中身が全部見れない場合は以下のログを出力する
   console.log(JSON.stringify(data, null, 2));
 })();
