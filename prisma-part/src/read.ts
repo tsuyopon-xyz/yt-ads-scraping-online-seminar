@@ -1,6 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 
 const read = async () => {
+  // 事前に `./create.ts` を実行してデータがDBに追加されている前提のコード
+
   const prisma = new PrismaClient();
   const users = await prisma.user.findMany();
   const usersWithPosts = await prisma.user.findMany({

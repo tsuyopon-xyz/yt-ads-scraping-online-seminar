@@ -6,8 +6,12 @@
   "scripts": {
     "create": "ts-node src/create.ts",
     "read": "ts-node src/read.ts",
+    "read:reset": "npm run reset:force && npm run create && npm run read",
+    "update": "ts-node src/update.ts",
+    "update:reset": "npm run reset:force && npm run create && npm run update",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "reset": "prisma migrate reset"
+    "reset": "prisma migrate reset",
+    "reset:force": "prisma migrate reset --force"
   },
   "keywords": [],
   "author": "",
