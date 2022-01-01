@@ -20,7 +20,7 @@ describe('ApiService', () => {
     expect(service).toBeDefined();
   });
 
-  it(
+  xit(
     'YouTbe Data APIの動作確認用に作ったテスト（確認が済んだら "xit" でテストが実行されないようにする）',
     async () => {
       const videoData = await service.getVideo(videoId);
