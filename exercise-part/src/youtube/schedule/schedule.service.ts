@@ -10,7 +10,7 @@ export class ScheduleService {
   private readonly logger = new Logger(ScheduleService.name);
   constructor(private readonly domainService: DomainService) {}
 
-  @Cron('*/10 * * * * *')
+  @Cron('0 * * * * *')
   async scheduleForDomainOfFetchAndSaveYouTubeAdsData() {
     this.logger.debug('Started "fetchAndSaveYouTubeAdsData"');
     await this.domainService.fetchAndSaveYouTubeAdsData(SOURCE_VIDEO_ID);
