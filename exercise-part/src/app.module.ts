@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ScheduleModule } from '@nestjs/schedule';
 import { YoutubeModule } from './youtube/youtube.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), YoutubeModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [ConfigModule.forRoot(), ScheduleModule.forRoot(), YoutubeModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
