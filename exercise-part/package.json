@@ -21,6 +21,7 @@
     "test:debug": "cross-env DATABASE_URL=postgresql://admin:admin@localhost:5433/develop?schema=public node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "cross-env DATABASE_URL=postgresql://admin:admin@localhost:5433/develop?schema=public jest --config ./test/jest-e2e.json",
     "migrate:dev": "cross-env DATABASE_URL=postgresql://admin:admin@localhost:5433/develop?schema=public prisma migrate dev",
+    "migrate:reset:dev": "cross-env DATABASE_URL=postgresql://admin:admin@localhost:5433/develop?schema=public prisma migrate reset",
     "migrate:deploy": "prisma migrate deploy"
   },
   "dependencies": {
