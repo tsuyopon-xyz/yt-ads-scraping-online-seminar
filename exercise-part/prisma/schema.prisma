@@ -9,3 +9,63 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model YouTube {
+  id             String                 @id /// YouTubeのVideoIdをセットする
+  createdAt      DateTime               @default(now()) // 動画の投稿日時ではなく、このレコードの追加日時
+  snippet        YouTubeSnippet?
+  statistics     YouTubeStatistics?
+  status         YouTubeStatus?
+  adsLandingPage YouTubeAdsLandingPage?
+}
+
+// 「https://www.googleapis.com/youtube/v3/videos」の内、
+// snippetの値を一部変換してデータを保存する
+model YouTubeSnippet {
+  videoId              String   @id
+  channelId            String
+  title                String
+  description          String
+  thumbnail            String // 大きいサイズから探して見つかったサムネイル画像をセットする（maxres,standard, high, medium, default, 見つからなかった場合は空文字列）
+  channelTitle         String
+  tags                 String // カンマ区切りで保存する
+  categoryId           String // 数字（文字列）でレスポンスがきてるのでそのまま型で保存
+  liveBroadcastContent String
+  publishedAt          DateTime
+  youtube              YouTube  @relation(fields: [videoId], references: [id])
+}
+
+// 「https://www.googleapis.com/youtube/v3/videos」の内、
+// statisticsの値を保存する。
+//
+// 各Countの値はStringになっているため型変換せずにそのまま格納する。
+// - 再生数がとてつもなく大きいと、INTEGERの最大値を超えてしまう可能性があるためStringの方が扱いやすい
+// - SQLで数値の大きさに応じてソートかけたい場合は、SQLでキャストして対応する
+model YouTubeStatistics {
+  videoId       String  @id
+  viewCount     String
+  likeCount     String
+  favoriteCount String
+  commentCount  String
+  youtube       YouTube @relation(fields: [videoId], references: [id])
+}
+
+// 「https://www.googleapis.com/youtube/v3/videos」の内、
+// statusの値を保存する。
+model YouTubeStatus {
+  videoId             String  @id
+  uploadStatus        String
+  privacyStatus       String
+  license             String
+  embeddable          Boolean
+  publicStatsViewable Boolean
+  madeForKids         Boolean
+  youtube             YouTube @relation(fields: [videoId], references: [id])
+}
+
+// Puppeteerを使って広告動画のIDと一緒に取得したLPのURLを保存する
+model YouTubeAdsLandingPage {
+  videoId        String  @id
+  landingPageUrl String
+  youtube        YouTube @relation(fields: [videoId], references: [id])
+}
