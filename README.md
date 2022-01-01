@@ -16,9 +16,9 @@
 ちなみに、運営しているプログラミング学習系コミュニティ・メルマガ・LINEには、以下のようなものがあります。
 
 - メルマガ
-  - [Web白熱教室](https://tsuyopon.xyz/lp/mail-magazine/)
-- LINE公式アカウント
   - [Web白熱教室](https://tsuyopon.xyz/lp/mail-magazine-training-course-for-beginner/)
+- LINE公式アカウント
+  - [Web白熱教室](https://tsuyopon.xyz/lp/mail-magazine/)
   - [JavaScript関数ドリル](https://js-drills.com/) 
   - [HTML&CSS速習教室](https://html-css-guide-five.vercel.app/)
   - [Webスキルスクール](https://web-skills-school.com/line-official-account/)
