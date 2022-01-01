@@ -103,8 +103,9 @@
 
 ## サンプルコード
 
-先ほど紹介した各技術ごとにサンプルコードを以下のディレクトリごとに分けて用意しています。
-必要に応じて学習の参考としてお使いください。
+先ほど紹介した各技術ごとにサンプルコードを用意しています。
+
+学ぶ技術ごとにディレクトリを分けているので、必要に応じて学習の参考としてお使いください。
 
 - [nestjs-part](https://github.com/tsuyopon-xyz/yt-ads-scraping-online-seminar/tree/main/nestjs-part) : 「NestJS」の解説で利用するサンプルコード
 - [puppeteer-part](https://github.com/tsuyopon-xyz/yt-ads-scraping-online-seminar/tree/main/puppeteer-part) : 「Puppeteer」の解説で利用するサンプルコード
